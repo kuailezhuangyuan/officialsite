@@ -375,7 +375,8 @@
 					//apk预请求
 				$.ajax({  
 				  url: jump+'/msg',  
-				  type: 'GET',  
+				  type: 'GET',
+				  async: false,	
 				  data: { invite_code: invite_code },  
 				  success: function(response) {  
 					console.log(response);  
