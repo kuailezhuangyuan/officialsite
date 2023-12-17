@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html style="font-size: 21.0526px;"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<title>签到分享领收益</title>
+<link rel="stylesheet" href="./css/reset.css">
+<link rel="stylesheet" href="./css/errorModal.css">
+<script type="text/javascript" src="./js/global.js"></script>
+<script type="text/javascript">
+	var reg = new RegExp("(^|&)"+ "invite_code" +"=([^&]*)(&|$)");
+    var r = window.location.search.substr(1).match(reg);
+    if(!r){
+    	var inviterUserId = "";
+    }else{
+    	var inviterUserId = decodeURI(r[2]);
+    }
+	//本页面中用到的url
+	var urls = {
+		getVerficationCode: window.baseUrl + "/api/user/getValidVerficationCode",
+		login: window.baseUrl + "/api/user/validLogin"
+	};
+</script>
+<style type="text/css">
+	html{
+		height: 100%;
+	}
+	body{
+		width: 100%;
+		height: 100%;
+		position: relative;
+		background: #cd1433;
+	}
+	.banner{
+		width: 100%;
+	}
+	.footer{
+		width: 100%;
+		position: absolute;
+		bottom: 0;
+	}
+	input::-webkit-outer-spin-button,
+	input::-webkit-inner-spin-button {
+	    -webkit-appearance: none !important;
+	    margin: 0;
+	}
+	input ::-webkit-input-placeholder{
+		color: #999999;
+	}
+	input{
+	    height: 2.35rem;
+	    font-size: .65rem;
+	    padding: 1rem;
+	    border: none;
+	    border-radius: 1.4rem;
+	    outline: none;
+	}
+	.container{
+		padding: 1.7rem;
+		font-size: 0;
+	}
+	.telphone{
+		width: 100%;
+	    margin-bottom: .6rem;
+	}
+	.verification{
+	    width: -webkit-calc(70% - .7rem);
+	    margin-right: .7rem;
+	}
+	.getVerification{
+		line-height: 2.35rem;
+	    width: 30%;
+	    float: right;
+	    font-size: .65rem;
+	    background: #ffcc00;
+	    text-align: center;
+	    border-radius: 1.4rem;
+	}
+	.getVerification.disableBtn{
+		background: #dcdcdc;
+	}
+	.submitBtn{
+		width: 100%;
+	    height: 2.5rem;
+	    background: #ffcc00;
+	    border-radius: 1.4rem;
+	    margin-top: 1.2rem;
+	    font-size: .85rem;
+	    line-height: 2.5rem;
+	    text-align: center;
+	    color: #c67e00;
+	}
+	.errorModal{
+		width: 70%;
+	}
+	.topTip>div span{
+		display: inline-block;
+	    color: #ffe054;
+	    font-size: 2rem;
+	}
+	.topTip>div div{
+		display: inline-block;
+	    background: #fdfb03;
+	    color: #e22d00;
+	    font-size: .8rem;
+	    padding: .1rem .5rem 0;
+	    border-radius: .8rem;
+	}
+	.topTip>p{
+		color: #ffe054;
+	    font-size: .7rem;
+	    line-height: 1;
+	}
+	.bottomTip{
+		font-size: .75rem;
+	    text-align: center;
+	    color: white;
+	    margin-top: -1rem;
+	}
+	.scrollContainer{
+		position: absolute;
+	    top: 1rem;
+	    left: 0;
+	    height: 2rem;
+	    width: 7.0rem;
+	    background: rgba(0,0,0,.2);
+	    border-radius: 0 1rem 1rem 0;
+	    overflow: hidden;
+	}
+	.scrollContainer .innerContainer{
+		position: absolute;
+		transition: top .5s;
+		top: 0;
+	}
+	.scrollContainer div{
+		height: 100%;
+	}
+	.scrollContainer img{
+	    width: 1.4rem;
+	    height: 1.4rem;
+	    border-radius: .7rem;
+	    float: left;
+	    margin: .3rem;
+	}
+	.scrollContainer span{
+	    display: flex;
+	    font-size: .7rem;
+	    width: 4.8rem;
+	    line-height: 2.4;
+	    padding: .2rem 0;
+	    color: #f3f3f3;
+	}
+</style>
+</head>
+<body style="height: 349px;">
+	<div class="scrollContainer">
+		<div class="innerContainer" style="top: -2700%;"><div>
+			<img src="./img/headIcon/headIcon (39).png"><span>38分钟前注册</span></div>
+		</div>
+	</div>
+	<img class="banner" src="./img/registerBanner.png">
+	<center class="topTip">
+		
+	</center>
+	<div class="container">
+		<input class="telphone" type="number" placeholder="请输入手机号码">
+		<input class="verification" type="number" placeholder="请输入手机验证码">
+		<div class="getVerification">获取验证码</div>
+		<div class="submitBtn">立即注册领取奖励</div>
+	</div>
+	<p class="bottomTip">签到分享就能获取收益</p>
+	<script type="text/javascript" src="./js/resetRem.js"></script>
+	<script type="text/javascript" src="./js/jquery.min.js"></script>
+	<script type="text/javascript" src="./js/errorModal.js"></script>
+	<script type="text/javascript">
+		$(function(){
+			$("body").height($("html").height());
+
+			$(".getVerification").bind("click",function(event){
+				var $target = $(event.target);
+				if($target.hasClass("disableBtn")){
+					return;
+				}
+				var tel = $(".telphone").val();
+				if(!(/^1[345789]\d{9}$/.test(tel))){
+					ErrorModal.show("请输入正确的手机号码");
+					return;
+				}
+				$target.addClass("disableBtn");
+				$.ajax({
+					url: urls.getVerficationCode,
+					type: "POST",
+					contentType: "application/json",
+					data: JSON.stringify({
+						mobile: tel
+					}),
+					success: function(response,status){
+						
+						if(response.code != 200) {
+							$target.removeClass("disableBtn");
+							ErrorModal.show(response.msg);
+						} else {
+							var data = response.data || {};
+							$target.text("60s");
+							var time = 60;
+							var interval = setInterval(function(){
+								if(--time == 0){
+									$target.removeClass("disableBtn");
+									$target.text("获取验证码");
+									clearInterval(interval);
+								}else{
+									$target.text(time + "s");
+								}
+							},1000);
+						}
+					},
+					error: function(jqXHR, textStatus, errorThrown){
+						$target.removeClass("disableBtn");
+					},
+					complete: function(){
+
+					}
+				});
+			});
+
+			$(".submitBtn").bind("click",function(event){
+				var $target = $(event.target);
+				var tel = $(".telphone").val();
+				var verfication = $(".verification").val();
+
+				if(tel == ""){
+					ErrorModal.show("请输入正确的手机号码");
+					return;
+				}
+				if(verfication == ""){
+					ErrorModal.show("请输入验证码");
+					return;
+				}
+				$.ajax({
+					url: urls.login,
+					type: "POST",
+					contentType: "application/json",
+					data: JSON.stringify({
+						mobile: tel,
+						inviterUserId: inviterUserId,
+						verfication: verfication
+						
+					}),
+					success: function(response,status){
+						location.href = "./download.html";
+					},
+					complete: function(){
+
+					}
+				});
+			});
+
+
+			// 随机左上角滚动提示信息
+			var randomImg = function(){
+				return Math.floor(Math.random()*50+1); // 1-50的随机数
+			};
+			var randomTime = function(){
+				return Math.floor(Math.random()*59+1); // 1-59的随机数
+			};
+			var tipCount = 0;
+
+			var randomTip = function(){
+				var img = "./img/headIcon/headIcon (" + randomImg() + ").png";
+				var text = randomTime() + "分钟前注册";
+				$(".innerContainer").append($("<div>").append($("<img>").attr("src",img))
+									 				   .append($("<span>").text(text)));
+				$(".innerContainer").css("top","-" + (tipCount++*100) + "%");
+			};
+			randomTip();
+			setInterval(randomTip,3000);
+		});
+	</script>
+
+
+<div class="errorModal"></div></body></html>
