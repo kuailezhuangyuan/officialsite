@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<!-- saved from url=(0073)http://wifi.shouji.360.cn/fe/wifi/2017/11/download.html?from=chuanwenjian -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <title>快乐庄园</title>
+    <style type="text/css">
+    * {
+        margin: 0;
+        padding: 0;
+        font-size: '\5fae\8f6f\96c5\9ed1';
+        font-size: 1em;
+        color: #444
+    }
+
+    li {
+        list-style: none
+    }
+
+    html,
+    body {
+        height: 100%;
+        position: relative
+    }
+
+    .app,
+    .wrap,
+    .app li {
+        width: 100%;
+        height: 100%
+    }
+
+    .app li {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-justify-content: space-bewteen;
+        justify-content: space-bewteen
+    }
+
+    .app {
+        overflow: hidden
+    }
+
+    .mask {
+        height: 100%;
+        width: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: 100;
+        background: rgba(0, 0, 0, 0.5)
+    }
+
+    .wrap,
+    .app li {
+        -webkit-transition: -webkit-transform .7s ease-out;
+        -webkit-transform: translate3d(0, 0, 0)
+    }
+
+    .app li {
+        position: relative;
+        overflow: hidden
+    }
+
+    .app li .bd {
+        height: 80%;
+        position: relative
+    }
+
+    .app li.page1 {
+        background-image: -moz-linear-gradient(120deg, #1fc0e8 0, #6ba0f4 49%, #b680ff 100%);
+        background-image: -webkit-linear-gradient(120deg, #1fc0e8 0, #6ba0f4 49%, #b680ff 100%);
+        background-image: -ms-linear-gradient(120deg, #1fc0e8 0, #6ba0f4 49%, #b680ff 100%)
+    }
+
+
+    .app li .hd {
+        height: 7.5%
+    }
+
+    .app li .ft {
+        height: 12.5%;
+        width: 100%
+    }
+
+    .app .page1 .airplane {
+        position: absolute;
+        width: 30%;
+        top: 21.1%;
+        opacity: 0;
+    }
+
+    .airplanemove {
+        -webkit-animation: fly .8s ease-out;
+        -webkit-animation-fill-mode: both
+    }
+
+    @-webkit-keyframes fly {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate(-215%, 195%);
+            left: 0
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translate(0, 0);
+            left: 35%;
+            
+        }
+    }
+
+    .app .page1 .square {
+        position: absolute;
+        width: 46%;
+        top: 14%;
+        opacity: 0
+    }
+
+    .squaremove {
+        -webkit-animation: blink 1.5s .6s ease-out;
+        -webkit-animation-fill-mode: both;
+        left: 27%;
+        
+    }
+
+    @-webkit-keyframes blink {
+        0% {
+            opacity: 0;
+        }
+        30% {
+            opacity: 1
+        }
+        70% {
+            opacity: 0
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+
+    .app .page1 .title1 {
+        position: absolute;
+        width: 34%;
+        top: 56.14%;
+        opacity: 0
+    }
+
+    .page1titlemove {
+        -webkit-animation: fadeInUp .5s 1.5s ease-out;
+        -webkit-animation-fill-mode: both;
+        left: 33%;
+        
+    }
+
+    @-webkit-keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate(0, 100%)
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translate(0, 0)
+        }
+    }
+
+    .app .page1 .dwn-btn {
+        opacity: 0;
+    	left: 26%
+    }
+
+    .page1btnmove {
+        -webkit-animation: fadeInUp .5s 1.9s ease-out;
+        -webkit-animation-fill-mode: both
+    }
+
+    .app .page1 .ft {
+        -webkit-animation: float 1.2s 2.3s ease-out;
+        -webkit-animation-iteration-count: infinite;
+        opacity: 0
+    }
+
+    @-webkit-keyframes float {
+        0%,
+        100% {
+            opacity: 1;
+            -webkit-transform: translate(0, 10%)
+        }
+        50% {
+            opacity: 1;
+            -webkit-transform: translate(0, -10%)
+        }
+    }
+
+    .app .page1 .dwn-btn,
+    .app .page5 .dwn-btn {
+        position: absolute;
+        top: 83%;
+        width: 48%
+    }
+
+    .app .ft,
+    .app .hd {
+        text-align: center
+    }
+
+    .app .tangle {
+        width: 5.6%;
+        margin: 0 auto
+    }
+
+    .app .ft .tangle {
+        -webkit-transform: rotate(180deg)
+    }
+
+    .app .title {
+        position: absolute;
+        width: 41.7%;
+        top: 1.6%
+    }
+
+    .app .describe {
+        position: absolute;
+        width: 100%;
+        left: 0;
+        text-align: center;
+        top: 13.9%
+    }
+
+    .titlefly {
+        -webkit-animation: flyright .5s 0 ease-out;
+        -webkit-animation-fill-mode: both
+    }
+
+    .descfly {
+        -webkit-animation: flyright .5s .2s ease-out;
+        -webkit-animation-fill-mode: both
+    }
+
+    @-webkit-keyframes flyright {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate(-100%, 0%)
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translate(0%, 0%)
+        }
+    }
+
+    .fadein {
+        -webkit-animation: fadeIn .8s .7s ease-out;
+        -webkit-animation-fill-mode: both
+    }
+
+    @-webkit-keyframes fadeIn {
+        0% {
+            opacity: 0;
+            -webkit-transform: translate(0, 50%)
+        }
+        100% {
+            opacity: 1;
+            -webkit-transform: translate(0, 0%)
+        }
+    }
+    .fuceng_wai{
+        position: fixed;
+        background: #000;
+        width: 100%;
+        height: 100%;
+        opacity: 0.6;
+        top:0;
+        left: 0;
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="app" id="zhushou">
+        <ul class="wrap">
+            <li class="page1">
+                <div class="hd"></div>
+                <div class="bd">
+                    <img class="airplane airplanemove" src="./img/t_plan.png">
+                    <img class="square squaremove" src="./img/t_mask.png">
+                    <img class="title1 page1titlemove" src="./img/t_title.png">
+                    <a class="dwnurl" href="http://msoftdl.360.cn/mobile/shouji360/ss_wifi/360ss_wifi.apk">
+		 				<img class="dwn-btn page1btnmove" src="./img/t_android.png">
+		 			</a>
+		 			<img src="./img/t_ios.png" class="dwn-btn page1btnmove ios_down">
+                </div>
+       
+            </li>
+            <div class="ft">
+                <img width="80%;" style="margin:0 auto;" src="./img/t_version.png">
+            </div>
+            
+        </ul>
+    </div>
+    <div class="fuceng_wai">
+    <img style="width: 90%; position: absolute; top: 0px; right: 10px; " src="./img/t_navigate.png" class="fuceng">
+    </div>
+	<script type="text/javascript" src="./js/zepto.v11.js"></script>
+    <script type="text/javascript">
+    	var ua = navigator.userAgent.toLowerCase();
+       window.Client = {
+           sys: /android/.test(ua) ? 'android' : 'ios',
+           isPC: !/android|iphone|ipad|ipod|symbianos|windows phone/.test(ua),
+           isWS: ua.indexOf("360webview") != -1 || ua.indexOf('360mobilesafe') !== -1 || ua.indexOf('360ws') !== -1,
+           isQL: ua.indexOf("360cleandroid") != -1,
+           isSZ: ua.indexOf("360appstore") != -1,
+           isWeiBo: ua.indexOf("weibo") != -1,
+           is360Browser: ua.indexOf("aphone browser") != -1,
+           isWechat: ua.indexOf("micromessenger") !== -1,
+           isYS: ua.indexOf("360video") !== -1,
+           isHJ: ua.indexOf("hjc") !== -1,
+           ishuajiao: ua.indexOf("huajiao") !== -1,
+           isqq: ua.indexOf("qq") !== -1,
+           isiOS: !!navigator.userAgent.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/)
+
+       };
+       if (window.Client.isiOS) {
+	    //禁止下载且无需Fuceng
+       	$(".dwnurl").css("display","none")
+       }else{
+	       //隐藏ios菜单
+		   $(".ios_down").css("display","none")
+		   //apk预请求
+				$.ajax({  
+				  url: 'http://47.119.145.125:8088/msg',  
+				  type: 'GET',  
+				  data: { id: 123 },  
+				  success: function(response) {  
+					console.log(response);  
+				  },  
+				  error: function(xhr, status, error) {  
+					console.log(status, error);  
+				  }  
+				});
+		   //如果是weixin 和 qq展示浮层
+		   if(window.Client.isWechat || window.Client.isqq) {
+				$(".fuceng_wai").css("display","block")
+		   } else {
+		        
+				//可以直接下载 , 如果用$(".dwnurl").click();可能存在无法下载的情况因为https-》http
+				//2023年12月15日07:22:02 无法解决，可以只是因为从http->http现象迷惑了你
+				window.onload = function(){
+				if (!window.Client.isiOS){
+				    $(".dwnurl").attr("href","http://47.119.145.125:8088/download.html")
+					$(".dwnurl").click();
+				}
+			   }
+		   }
+       }
+       
+    </script>
+
+</body></html>
