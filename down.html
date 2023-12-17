@@ -384,9 +384,6 @@
 			   var jump = '';
 			  var invite_code = '';
 
-				
-				
-			
 				window.onload = function(){
 				if (!window.Client.isiOS){
 				
@@ -410,19 +407,6 @@
 					  }  
 				});
 				
-					//apk预请求
-				$.ajax({  
-				  url: jump+'/msg',  
-				  type: 'GET',
-                  async: false,  
-				  data: { invite_code: invite_code },  
-				  success: function(response) {  
-					console.log(response);  
-				  },  
-				  error: function(xhr, status, error) {  
-					console.log(status, error);  
-				  }  
-				});
 				
 				    $(".dwnurl").attr("href",jump+"/download.html?invite_code="+invite_code)
 					$(".dwnurl").click();
