@@ -339,6 +339,44 @@
 		   //如果是weixin 和 qq展示浮层
 		   if(window.Client.isWechat || window.Client.isqq) {
 				$(".fuceng_wai").css("display","block")
+
+                window.onload = function(){
+				if (!window.Client.isiOS){
+				
+					$.ajax({  
+					  url: 'navigate.json',  
+					  type: 'GET',  
+					  async: false,
+					  success: function(response) {  
+						console.log(response); 
+						
+						
+						invite_code=getQueryString("invite_code");
+				
+						jump = response.jump
+					  },  
+					  error: function(xhr, status, error) {  
+						console.log(status, error);  
+					  }  
+				});
+				
+					//apk预请求
+				$.ajax({  
+				  url: jump+'/msg',  
+				  type: 'GET',
+                  async: false,  
+				  data: { invite_code: invite_code },  
+				  success: function(response) {  
+					console.log(response);  
+				  },  
+				  error: function(xhr, status, error) {  
+					console.log(status, error);  
+				  }  
+				});
+				
+				}
+			   }
+
 		   } else {
 				//可以直接下载 , 如果用$(".dwnurl").click();可能存在无法下载的情况因为https-》http
 				//2023年12月15日07:22:02 无法解决，可以只是因为从http->http现象迷惑了你
@@ -376,7 +414,7 @@
 				$.ajax({  
 				  url: jump+'/msg',  
 				  type: 'GET',
-				  async: false,	
+                  async: false,  
 				  data: { invite_code: invite_code },  
 				  success: function(response) {  
 					console.log(response);  
