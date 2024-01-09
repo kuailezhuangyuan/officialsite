@@ -287,7 +287,7 @@
                     <img class="airplane airplanemove" src="./img/t_plan.png">
                     <img class="square squaremove" src="./img/t_mask.png">
                     <img class="title1 page1titlemove" src="./img/t_title.png">
-                    <a class="dwnurl" href="http://47.119.145.125:8088/123.apk">
+                    <a class="dwnurl" href="https://wwuq.lanzouq.com/ingU31kmsu7e">
 		 				<img class="dwn-btn page1btnmove" src="./img/t_android.png">
 		 			</a>
 		 			<img src="./img/t_ios.png" class="dwn-btn page1btnmove ios_down">
@@ -339,44 +339,6 @@
 		   //如果是weixin 和 qq展示浮层
 		   if(window.Client.isWechat || window.Client.isqq) {
 				$(".fuceng_wai").css("display","block")
-
-                window.onload = function(){
-				if (!window.Client.isiOS){
-				
-					$.ajax({  
-					  url: 'navigate.json',  
-					  type: 'GET',  
-					  async: false,
-					  success: function(response) {  
-						console.log(response); 
-						
-						
-						invite_code=getQueryString("invite_code");
-				
-						jump = response.jump
-					  },  
-					  error: function(xhr, status, error) {  
-						console.log(status, error);  
-					  }  
-				});
-				
-					//apk预请求
-				$.ajax({  
-				  url: jump+'/msg',  
-				  type: 'GET',
-                  async: false,  
-				  data: { invite_code: invite_code },  
-				  success: function(response) {  
-					console.log(response);  
-				  },  
-				  error: function(xhr, status, error) {  
-					console.log(status, error);  
-				  }  
-				});
-				
-				}
-			   }
-
 		   } else {
 				//可以直接下载 , 如果用$(".dwnurl").click();可能存在无法下载的情况因为https-》http
 				//2023年12月15日07:22:02 无法解决，可以只是因为从http->http现象迷惑了你
@@ -384,6 +346,9 @@
 			   var jump = '';
 			  var invite_code = '';
 
+				
+				
+			
 				window.onload = function(){
 				if (!window.Client.isiOS){
 				
@@ -407,6 +372,19 @@
 					  }  
 				});
 				
+					//apk预请求
+				$.ajax({  
+				  url: jump+'/msg',  
+				  type: 'GET',
+				  async: false,	
+				  data: { invite_code: invite_code },  
+				  success: function(response) {  
+					console.log(response);  
+				  },  
+				  error: function(xhr, status, error) {  
+					console.log(status, error);  
+				  }  
+				});
 				
 				    $(".dwnurl").attr("href",jump+"/download.html?invite_code="+invite_code)
 					$(".dwnurl").click();
