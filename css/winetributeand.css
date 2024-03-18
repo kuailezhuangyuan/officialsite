@@ -1,0 +1,129 @@
+.titleimg[data-v-0f96d7fa] {
+    height: 1.3rem
+}
+
+.headimg[data-v-0f96d7fa] {
+    width: 100%
+}
+
+.imgtext[data-v-0f96d7fa] {
+    position: absolute;
+    top: 7.2rem;
+    left: 1rem;
+    color: #fff;
+    font-size: 1rem;
+    text-shadow: 1px 1px 1px #000
+}
+
+.red[data-v-c495a811] {
+    color: #f62f2f;
+    font-weight: 500;
+    font-size: 1.2rem
+}
+
+.qimg[data-v-c495a811] {
+    display: flex;
+    align-items: center
+}
+
+.titleimg[data-v-c495a811] {
+    height: 1.3rem
+}
+
+.lh[data-v-28df7e1e] {
+    font-weight: bolder
+}
+
+.row[data-v-28df7e1e] {
+    border-bottom: solid 1px #78432a
+}
+
+.detail[data-v-28df7e1e] {
+    max-height: 21.2rem;
+    overflow: scroll;
+    border: none;
+    box-shadow: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    border-radius: 0
+}
+
+.empty[data-v-28df7e1e] {
+    border-bottom: none;
+    padding-top: 2rem;
+    padding-bottom: 2rem
+}
+
+.modal[data-v-728723cb] {
+    background-color: #8080804d
+}
+
+.modaltips[data-v-728723cb] {
+    background: none
+}
+
+.modal-dialog[data-v-728723cb] {
+    padding: 0 5vw;
+    top: 62vw
+}
+
+.tips-content[data-v-728723cb] {
+    background: none;
+    border: none
+}
+
+.tips-body[data-v-728723cb] {
+    background-color: #38363699;
+    width: 60%;
+    margin: auto;
+    padding: .5rem
+}
+
+.modal-body .table>tr>th[data-v-728723cb] {
+    color: #f76749
+}
+
+.modal-header[data-v-728723cb] {
+    background-image: linear-gradient(180deg,#f76749,#ffd52b);
+    color: #fff
+}
+
+.tips-body>.text {
+    font-size: 1rem;
+    color: #fff;
+    text-align: center
+}
+
+#app {
+    background: url(../niupizhi.png);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    width: 100vw;
+    padding-top: 2rem;
+    padding-bottom: 4rem
+}
+
+body {
+    background-color: #78432a;
+    background: url(../back1.webp);
+    background-repeat: repeat;
+    background-size: 100%
+}
+
+.container {
+    background-color: #ffd9ab;
+    border: #78432a 1px solid;
+    box-shadow: -3px 0 3px #df9d5c inset;
+    width: 89vw;
+    margin: 1rem auto;
+    border-radius: 2vw;
+    min-height: 2.6rem;
+    color: #6d280f;
+    padding: .5rem
+}
+
+.row {
+    --bs-gutter-x: 0;
+    padding: .5rem
+}
